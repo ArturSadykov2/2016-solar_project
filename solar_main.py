@@ -34,11 +34,11 @@ def execution():
     """
     global physical_time
     global displayed_time
-    recalculate_space_objects_positions(space_objects, time_step.get())
+    recalculate_space_objects_positions(space_objects, time_step.get()*3600*24)
     for body in space_objects:
         update_object_position(space, body)
     physical_time += time_step.get()
-    displayed_time.set("%.1f" % physical_time + " seconds gone")
+    displayed_time.set("%.1f" % physical_time + " days gone")
 
     if perform_execution:
         space.after(101 - int(time_speed.get()), execution)
